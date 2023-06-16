@@ -49,17 +49,67 @@ console.log(gridSection[1]);
 /* Diferente do getElementsByClassName, a lista aqui é estática */
 
 
-primeiraUl.classList.add('grid-section');
 
-// console.log(gridSectionHTML[0]);
-// console.log(gridSectionNode[0]);
+// HTMLCOLLECTION VS NODELIST
+// A diferença está nos métodos e propriedades de ambas. Além disso a NodeList retornada com querySelectorAll é estática.
 
-gridSectionNode.forEach(function (item, index) {
-  console.log(item);
+const titulo = document.querySelector('.titulo');
+const gridSectionHTML = document.getElementsByClassName('grid-section');
+const gridSectionNode = document.querySelectorAll('.grid-section');
+
+titulo.classList.add('grid-section');
+
+console.log(gridSectionHTML); // 4 itens
+console.log(gridSectionNode); // 3 itens
+
+
+
+
+// ARRAY LIKE
+// HTMLCollection e NodeList são array-like, parecem uma array mas não são. O método de Array forEach() por exemplo, existe apenas em NodeList.
+
+const gridSection3 = document.querySelectorAll('.grid-section');
+
+gridSection3.forEach(function(gridItem, index, array) {
+  gridItem.classList.add('azul');
+  console.log(index) // index do item na array
+  console.log(array) // a array completa
 });
 
-const arrayGrid = Array.from(gridSectionHTML);
+/* É possível transformar array-like em uma Array real, utilizando o método Array.from(gridSection) */
+const arrayGrid = Array.from(gridSectionHTML) // agora o que era uma HTMLCollection virou array, e então posso usar os métodos e propriedades de uma array
 
-arrayGrid.forEach(function (item) {
-  console.log(item);
-})
+arrayGrid.forEach((item) => console.log(item))
+arrayGrid.pop() 
+
+
+
+// EXERCICIOS 2
+
+// Retorne no console todas as imagens do site
+
+const imgSite = document.querySelectorAll('img')
+console.log(imgSite)
+
+// Retorne no console apenas as imagens que começaram com a palavra imagem
+
+const imgSite2 = document.querySelectorAll('img[src^="img/imagem"]')
+console.log(imgSite2)
+
+// Selecione todos os links internos (onde o href começa com #)
+
+const linksInternos2 = document.querySelectorAll('[href^="#"]')
+console.log(linksInternos2) // retorna um NodeList com os links internos onde o href começa com #
+
+// Selecione o primeiro h2 dentro de .animais-descricao
+
+const primeiroTitulo = document.querySelector('.animais-descricao h2')
+console.log(primeiroTitulo) // retorna o primeiro h2 dentro de .animais-descricao
+
+// Selecione o último p do site
+
+const ultimoP = document.querySelectorAll('p')
+
+console.log(ultimoP[ultimoP.length - 1]) // OU console.log(ultimoP[--ultimoP.length])
+
+
