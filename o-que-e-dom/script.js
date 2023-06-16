@@ -65,4 +65,3 @@ console.log(linguagem)
 
 const larguraJanela = window.innerWidth
 console.log(larguraJanela)
-
