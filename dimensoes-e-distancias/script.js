@@ -33,8 +33,8 @@ window.onload = () => {
 const links = document.querySelectorAll('a')
 
 links.forEach((link) => {
-  const linkWidth = links.offsetWidth
-  const linkHeight = links.offsetHeight
+  const linkWidth = link.offsetWidth
+  const linkHeight = link.offsetHeight
 
   if(linkWidth >= 48 && linkHeight >= 48) {
     console.log('Possui o minimo recomendado')
