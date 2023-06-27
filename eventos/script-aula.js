@@ -97,6 +97,7 @@ img.addEventListener('click', callback);
 // DIFERENTES EVENTOS
 // Existem diversos eventos como click, scroll, resize, keydown, keyup, mouseenter e mais. Eventos podem ser adicionados a diferentes elementos, como o window e document também.
 
+/*
 const h1 = document.querySelector('h1');
 
 function callback(event) {
@@ -108,3 +109,26 @@ h1.addEventListener('mouseenter', callback);
 window.addEventListener('scroll', callback);
 window.addEventListener('resize', callback);
 window.addEventListener('keydown', callback);
+*/
+
+
+
+
+// KEYBOARD
+// Você pode adicionar atalhos para facilitar a navegação no seu site, através de eventos do keyboard.
+
+function handleKeyboard(event) {
+  if(event.key === 'a')
+    document.body.classList.toggle('azul');
+  else if(event.key === 'v')
+    document.body.classList.toggle('vermelho');
+}
+
+window.addEventListener('keydown', handleKeyboard);
+
+
+
+
+
+
+
