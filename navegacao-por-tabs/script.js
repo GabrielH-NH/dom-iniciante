@@ -1,3 +1,4 @@
+function initTabNav() {
 const tabmenu = document.querySelectorAll('.js-tabmenu li');
 const tabcontent = document.querySelectorAll('.js-tabcontent section');
 
@@ -17,3 +18,7 @@ if (tabmenu.length && tabcontent.length) {
     })
   })
 }
+}
+
+initTabNav();
+
